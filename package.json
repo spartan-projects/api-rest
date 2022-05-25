@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "prod": "node index.js",
-    "test": "jest"
+    "prod": "npm install && node index.js",
+    "test": "jest",
+    "commit": "cz"
   },
   "type": "module",
   "repository": {
@@ -31,13 +32,29 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.0",
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
     "babel-jest": "^28.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "semantic-release": "^19.0.2"
   },
   "jest": {
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
