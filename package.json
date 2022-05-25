@@ -38,7 +38,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.1",
     "jest": "^28.1.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "semantic-release": "^19.0.2"
   },
   "jest": {
     "transform": {
