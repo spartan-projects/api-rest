@@ -1,0 +1,33 @@
+name: "API Rest CI"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  integration:
+    strategy:
+      fail-fast: false
+      matrix: 
+        node_verision: [15.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: "Configure Nodejs"
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: "Checkout Repository"
+        uses: actions/checkout@v3
+      - name: "Install Packages"
+        run: npm install
+      - name: Run Tests
+        run: npm test
+      
+    
