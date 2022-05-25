@@ -32,7 +32,7 @@ jobs:
       - name: "Build Application"
         run: |
           mkdir -p dist/
-          zip -r dist.zip -x node_modules/**\* .; mv dist.zip dist/
+          zip -r dist.zip . -x node_modules/**\*; mv dist.zip dist/
       - name: "Store artifacts"
         uses: actions/upload-artifact@v2
         with:
