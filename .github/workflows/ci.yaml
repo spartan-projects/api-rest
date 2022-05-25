@@ -38,4 +38,8 @@ jobs:
         with:
           name: distributable
           path: dist/
+      - name: "Create Release"
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secret.GITHUB_TOKEN }}
     
