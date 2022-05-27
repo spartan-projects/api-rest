@@ -1,4 +1,4 @@
-import common from "../common/common.js";
+import common from "../src/common/common.js";
 
 describe("User Wrapper", () => {
     test("it should create wrapper user response", () => {
