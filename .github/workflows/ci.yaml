@@ -23,6 +23,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
+      - name: "Environment Variables"
+        run: echo "Github Repository= ${GITHUB_REPOSITORY}"
       - name: "Checkout Repository"
         uses: actions/checkout@v3
       - name: "Install Packages"
